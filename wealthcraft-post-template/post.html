@@ -1,0 +1,119 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="fonts.css" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--y:#FFE01B;--bg:#0b0b0c}
+body{width:1080px;height:1350px;background:var(--bg);font-family:Montserrat,sans-serif;color:#fff;overflow:hidden;position:relative}
+.bgglow{position:absolute;inset:0;background:
+ radial-gradient(600px 420px at 30% 72%,rgba(255,170,60,.13),transparent 70%),
+ radial-gradient(500px 500px at 60% 60%,rgba(70,90,255,.10),transparent 70%),
+ linear-gradient(180deg,#070708 0%,#111114 60%,#0a0a0b 100%)}
+.abs{position:absolute}
+.tag{left:56px;top:36px;font-weight:700;font-size:15px;letter-spacing:3px;line-height:22px}
+.tag span{margin-right:22px}
+.swash{height:6px;background:var(--y);border-radius:6px;transform:rotate(-2deg)}
+.count{right:60px;top:36px;font:800 26px Montserrat}.count b{color:var(--y)}
+.h1{left:56px;top:112px;font-family:'Archivo Black';line-height:.92;letter-spacing:-2px}
+.h1 .a{font-size:80px}.h1 .b{font-size:96px;color:var(--y)}.h1 .c{font-size:96px}
+.sub{left:62px;top:385px;font-weight:600;font-size:36px}
+.reel{left:60px;top:425px;font-family:'Archivo Black';font-size:54px;color:var(--y);letter-spacing:-1px}
+.hand{font-family:Caveat;font-weight:700;color:#fff}
+.note1{right:40px;top:150px;font-size:38px;line-height:42px;transform:rotate(-12deg);text-align:left}
+.badge{border-radius:14px;text-align:center;font-weight:600}
+.pill-long{left:188px;top:512px;width:180px;height:88px;background:#141416;border:2px solid #555;color:#fff;font-size:23px;padding-top:8px}
+.pill-long b,.pill-short b{display:block;font:800 36px Montserrat}
+.pill-short{left:800px;top:352px;width:175px;height:92px;background:var(--y);color:#111;font-size:23px;padding-top:10px;transform:rotate(-4deg);z-index:5}
+/* laptop */
+.laptop{left:-20px;top:560px;width:520px;height:390px}
+.screen{position:absolute;left:20px;top:0;width:480px;height:330px;background:#1a1b1f;border:10px solid #2a2b2f;border-radius:18px 18px 4px 4px;overflow:hidden}
+.base{position:absolute;left:-30px;top:326px;width:580px;height:26px;background:linear-gradient(#9a9ca3,#4a4b50);border-radius:0 0 30px 30px}
+.thumbs{position:absolute;left:8px;top:40px;width:62px}
+.thumbs div{height:34px;margin-bottom:7px;border-radius:4px;overflow:hidden;position:relative}
+.preview{position:absolute;left:80px;top:40px;width:380px;height:190px;border-radius:6px;overflow:hidden}
+.wave{position:absolute;left:10px;right:10px;top:245px;height:60px;border-radius:4px;background:#0f1a33;overflow:hidden}
+.crop{position:absolute;background:url(src.png) no-repeat}
+/* AI chip */
+.chip{left:530px;top:575px;width:140px;height:140px}
+.chip .core{position:absolute;inset:26px;border-radius:22px;background:#0d0f2a;border:4px solid #4b6bff;box-shadow:0 0 30px #3b5bff,0 0 60px rgba(160,60,255,.7),inset 0 0 20px rgba(80,100,255,.6);display:flex;align-items:center;justify-content:center;font:800 56px Montserrat;color:#fff}
+.chip i{position:absolute;background:#4f8dff;box-shadow:0 0 8px #4f8dff}
+.arrow{left:680px;top:612px;width:90px;height:64px}
+.checks{left:518px;top:750px;font-size:19px;font-weight:600;line-height:42px}
+.checks li{list-style:none;display:flex;align-items:center;gap:10px}
+.checks li:before{content:"✓";width:26px;height:26px;border-radius:50%;background:#2fd06f;color:#fff;font:800 16px Montserrat;display:flex;align-items:center;justify-content:center}
+/* phone */
+.phone{left:735px;top:400px;width:320px;height:610px;border-radius:44px;background:#000;border:9px solid #3a3b40;box-shadow:0 0 0 2px #777,0 30px 60px rgba(0,0,0,.6);overflow:hidden;transform:rotate(0deg)}
+.phone .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.75) 55%,#000 64%)}
+.phone .ptitle{position:absolute;left:24px;top:380px;font-family:'Archivo Black';font-size:34px;line-height:40px;letter-spacing:-1px}
+.phone .ptitle .y{color:var(--y)}
+.side{position:absolute;right:14px;top:340px;font-size:12px;text-align:center;line-height:20px}
+.side div{font-size:26px}
+/* notebook */
+.notebook{left:150px;top:1040px;width:430px;height:200px;background:linear-gradient(#f4f1ea,#dcd7cc);transform:rotate(-8deg);border-radius:6px;box-shadow:0 20px 40px rgba(0,0,0,.6)}
+.notebook .hand{color:#1a1a1a;font-size:44px;line-height:48px;position:absolute;left:40px;top:30px}
+.cta{left:590px;top:1200px;display:none}
+.btn{left:592px;top:1058px;width:430px;height:92px;background:var(--y);border-radius:22px;color:#111;font-family:'Archivo Black';font-size:40px;display:flex;align-items:center;justify-content:center;gap:18px;box-shadow:0 10px 30px rgba(255,224,27,.25);z-index:6}
+.foot{left:56px;top:1275px;font-weight:600;font-size:18px;letter-spacing:2px}
+.foot2{right:40px;top:1205px;font-weight:700;font-size:15px;letter-spacing:3px;line-height:19px;z-index:7;background:rgba(11,11,12,.85);padding:6px 10px}
+</style></head><body>
+<div class="bgglow"></div>
+
+<div class="abs tag"><span>MONEY</span><span>BUSINESS</span><span>TECHNOLOGY</span><br>A SMARTER YOU
+ <div class="swash" style="width:70px;margin-top:6px"></div></div>
+<div class="abs count"><b>1</b> / 7</div>
+
+<div class="abs h1"><div class="a">You recorded a</div><div class="b">10-MINUTE</div><div class="c">VIDEO.</div></div>
+<div class="abs sub">But you only need a</div>
+<div class="abs reel">30-SECOND REEL.</div>
+<div class="abs swash" style="left:62px;top:488px;width:170px"></div>
+
+<div class="abs hand note1">Same content.<br>&nbsp;Less time.<br>&nbsp;&nbsp;More impact.
+ <div class="swash" style="width:150px;margin:6px 0 0 30px"></div></div>
+
+<!-- laptop -->
+<div class="abs laptop">
+ <div class="screen">
+  <div class="thumbs" id="thumbs"></div>
+  <div class="preview"><div class="crop" id="lap"></div></div>
+  <div class="wave"><svg width="100%" height="60" id="wv"></svg></div>
+ </div>
+ <div class="base"></div>
+</div>
+<div class="abs badge pill-long"><b>10:00</b>Long Video</div>
+
+<!-- AI chip -->
+<div class="abs chip" id="chip"><div class="core">AI</div></div>
+<svg class="abs arrow" viewBox="0 0 90 64"><path d="M0 22h48V2l40 30-40 30V42H0z" fill="#FFE01B"/></svg>
+<ul class="abs checks"><li>Find best parts</li><li>Add captions</li><li>Remove silence</li><li>Edit faster</li></ul>
+
+<!-- phone -->
+<div class="abs badge pill-short"><b>0:30</b>Short Reel</div>
+<div class="abs phone">
+ <div class="crop" id="ph"></div>
+ <div class="shade"></div>
+ <div class="side"><div style="color:#ff3b4e">♥</div>12.4K<div>◯</div>278<div>▽</div>1,021</div>
+ <div class="ptitle">5 WAYS<br><span class="y">TO SAVE</span><br>MORE MONEY
+  <div class="swash" style="width:130px;margin-top:8px"></div></div>
+</div>
+
+<div class="abs notebook"><div class="hand">Same video.<br>&nbsp;Bigger reach.</div>
+ <div style="position:absolute;left:90px;top:135px;width:170px;height:6px;background:#111;border-radius:6px;transform:rotate(-6deg)"></div></div>
+
+<div class="abs btn">HERE'S HOW <svg width="42" height="34" viewBox="0 0 42 34"><path d="M2 17h34M22 3l15 14-15 14" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+<div class="abs foot">wealthcraft_byh<div class="swash" style="width:55px;margin-top:6px;height:5px"></div></div>
+<div class="abs foot2">IDEAS<br>SKILLS<br>INCOME<br>FREEDOM<div class="swash" style="width:45px;margin-top:6px;height:5px"></div></div>
+
+<script>
+// crop(el, sx,sy,sw,sh, targetW,targetH) from the 921px-wide screenshot
+function crop(el,sx,sy,sw,sh,tw,th){const s=Math.max(tw/sw,th/sh);
+ el.style.width=tw+'px';el.style.height=th+'px';
+ el.style.backgroundSize=(921*s)+'px auto';
+ el.style.backgroundPosition=(-sx*s)+'px '+(-sy*s)+'px';}
+crop(document.getElementById('lap'),207,880,178,90,380,190);
+crop(document.getElementById('ph'),630,700,250,268,302,324);
+const th=document.getElementById('thumbs');
+for(let i=0;i<5;i++){const d=document.createElement('div');const c=document.createElement('div');c.className='crop';d.appendChild(c);th.appendChild(d);crop(c,232,890,110,62,62,34);}
+const wv=document.getElementById('wv');let p='';for(let x=0;x<440;x+=3){const h=6+Math.abs(Math.sin(x*.13)*Math.cos(x*.041))*44*Math.random();p+=`<rect x="${x}" y="${30-h/2}" width="2" height="${h}" fill="#3d7bff"/>`}wv.innerHTML=p;
+const chip=document.getElementById('chip');
+for(let i=0;i<5;i++){[['left',38+i*15+'px','top','4px','3px','20px'],['left',38+i*15+'px','bottom','4px','3px','20px'],['top',38+i*15+'px','left','4px','20px','3px'],['top',38+i*15+'px','right','4px','20px','3px']].forEach(a=>{const e=document.createElement('i');e.style[a[0]]=a[1];e.style[a[2]]=a[3];e.style.width=a[4];e.style.height=a[5];chip.appendChild(e)})}
+</script></body></html>
